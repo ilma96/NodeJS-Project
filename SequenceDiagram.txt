@@ -1,0 +1,17 @@
+title IPGeolocation x IPGeo Mashup
+
+participant IPGeolocationAPI
+participant Client
+participant Server
+participant IPGeoAPI
+
+Client->Server:   GET/
+Server->Client:   200 Ok + html/index.html
+Client->Server:   GET/search?IPAddress=109.242.0.0
+
+Server->IPGeolocationAPI:  GET /ipgeo?apiKey=d09fd7fb1bf04f089c81a457733b4299&ip=109.242.0.0 HTTP/2 \n Host: api.ipgeolocation.io
+IPGeolocationAPI->Server: HTTP/2 200 + 780 Bytes representing organization, city, currency name JSON object
+Server->IPGeoAPI:  GET /ipgeo/109.242.0.0 HTTP/2 \n Host: api.techniknews.net
+IPGeoAPI->Server: HTTP/2 200 + 314 Bytes representing timezone, continent JSON object
+Server->Client: 200 OK + webpage containing organization, city, currency name, timezone, continent for IP-address, 109.242.0.0
+

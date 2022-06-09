@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IPGeolocation x IPGeo Synchronous Mashup</title>
+    <style>
+      body,
+      form {
+        margin: 20px auto;
+        max-width: 800px;
+        overflow-x: hidden;
+      }
+      fieldset {
+        display: flex;
+      }
+      input#IPAddress {
+        flex-grow: 50;
+        margin: 0 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="search" method="get">
+      <fieldset>
+        <legend>IPGeolocation API and IPGeo API</legend>
+        <label for="IPAddress">IP Address Lookup:</label>
+        <input id="IPAddress" name="IPAddress" type="text" />
+        <input type="submit" />
+      </fieldset>
+    </form>
+  </body>
+</html>
